@@ -38,3 +38,12 @@ Suggested extensions:
 This app leverages the following third-party library:
 
  * [Picasso](http://square.github.io/picasso/) - For image loading
+ 
+ 
+ ## Video Walkthrough
+ 
+ Here's a walkthrough of implemented user stories:
+ 
+ <img src='https://github.com/urspralini/codepath-animations-lab/blob/master/animation_lab.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+ 
+ GIF created with [LiceCap](http://www.cockos.com/licecap/).
