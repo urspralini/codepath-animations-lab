@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -103,7 +106,20 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.VH> {
                     if (contact != null) {
                         Intent detailIntent = new Intent(context, DetailsActivity.class);
                         detailIntent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
-                        context.startActivity(detailIntent);
+                        // Check if we're running on Android 5.0 or higher
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            Pair<View, String> p1 = Pair.create((View)ivProfile, "profile");
+                            Pair<View, String> p2 = Pair.create((View)tvName, "text");
+                            Pair<View, String> p3 = Pair.create(vPalette, "palette");
+                            final ActivityOptionsCompat options = ActivityOptionsCompat
+                                    .makeSceneTransitionAnimation((Activity) context, p1, p2, p3);
+                            context.startActivity(detailIntent, options.toBundle());
+
+                        } else {
+                            // Implement this feature without material design
+                            context.startActivity(detailIntent);
+                        }
+
                     }
                 }
             });

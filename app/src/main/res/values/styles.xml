@@ -8,6 +8,14 @@
         <item name="android:colorAccent">@color/accent</item>
         <item name="colorAccent">@color/accent</item>
         <item name="android:windowIsTranslucent">true</item>
+
+        <!-- related to animations -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowEnterTransition">@transition/change_image_transform</item>
+        <item name="android:windowExitTransition">@transition/change_image_transform</item>
+
+        <item name="android:windowSharedElementEnterTransition">@transition/change_image_transform</item>
+        <item name="android:windowSharedElementExitTransition">@transition/change_image_transform</item>
     </style>
 
 </resources>
